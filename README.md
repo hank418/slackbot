@@ -1,6 +1,6 @@
 # slackbot
-> Use slack rtm.connect to connect RTM websocket to slack.
-
+---
+Use slack rtm.connect to connect RTM websocket to slack.
 > [See difference between rtm.start and rtm.connect](https://slackapi.github.io/python-slackclient/real_time_messaging.html#rtm-start-vs-rtm-connect)
 
 ## Installation
