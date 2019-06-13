@@ -13,6 +13,7 @@ sc = SlackClient(slack_token)
 def get_message_event(event):
     # start here
     print(event)
+    sc.rtm_send_message(message=event['text'],channel=event['channel'])
 
 
 
