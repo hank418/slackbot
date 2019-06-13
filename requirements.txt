@@ -1,0 +1,4 @@
+six
+requests
+websocket-client
+slackclient==2.0.0
