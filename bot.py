@@ -8,13 +8,16 @@ with open(f"{current_dir}/config.txt", encoding='utf-8') as json_file:
     config = json.load(json_file)
 slack_token = config['slack_api_token']
 sc = SlackClient(slack_token)
+web_client = slack.WebClient(token=json_data['slack_api_token'])
 
 
 def get_message_event(event):
     # start here
-    print(event)
-    sc.rtm_send_message(message=event['text'],channel=event['channel'])
-
+    # print(event)
+    web_client.chat_postMessage(
+        channel=event['channel'],
+        text=event['text'],
+    )
 
 
 if sc.rtm_connect(with_team_state=False, auto_reconnect=True):
@@ -24,7 +27,7 @@ if sc.rtm_connect(with_team_state=False, auto_reconnect=True):
         for event in events:
             if 'type'in event and event['type'] == "message" and 'user' in event:
                 get_message_event(event)
-        time.sleep(1)
+        time.sleep(0.5)
 else:
     print("Connection Failed")
 
