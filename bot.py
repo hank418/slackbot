@@ -1,3 +1,4 @@
+import slack
 from slackclient import SlackClient
 import pathlib
 import json
@@ -8,7 +9,7 @@ with open(f"{current_dir}/config.txt", encoding='utf-8') as json_file:
     config = json.load(json_file)
 slack_token = config['slack_api_token']
 sc = SlackClient(slack_token)
-web_client = slack.WebClient(token=json_data['slack_api_token'])
+web_client = slack.WebClient(token=config['slack_api_token'])
 
 
 def get_message_event(event):
